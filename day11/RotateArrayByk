@@ -1,0 +1,31 @@
+package day11;
+
+import java.util.Arrays;
+
+public class RotateArrayByK {
+
+    public static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+    public static void rotate(int[] arr, int k) {
+        int n = arr.length;
+        k = k % n; // handle overflow
+
+        reverse(arr, 0, n - 1);
+        reverse(arr, 0, k - 1);
+        reverse(arr, k, n - 1);
+    }
+
+    public static void main(String[] args) {
+        int[] data = {1, 2, 3, 4, 5, 6, 7};
+        rotate(data, 3);
+        System.out.println("Array after rotation: " + Arrays.toString(data));
+    }
+}
