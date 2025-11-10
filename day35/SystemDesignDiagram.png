@@ -1,0 +1,26 @@
++------------------------+
+|        CLIENT          |
+| (Browser/Mobile App)   |
++----------+-------------+
+           |
+           v
++------------------------+
+|     API GATEWAY / LB   | ← NGINX / AWS Load Balancer
++----------+-------------+
+           |
+           v
++------------------------+
+|     SPRING BOOT APP    | ← Your Java backend
+|  (Controller, Service) |
++----------+-------------+
+           |
+           v
++------------------------+
+|     DATABASE (MySQL)   |
+|   + Redis (Caching)    |
++----------+-------------+
+           |
+           v
++------------------------+
+| Message Queue (Kafka)  |
++------------------------+
