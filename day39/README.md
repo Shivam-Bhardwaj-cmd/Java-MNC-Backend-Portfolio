@@ -1,16 +1,18 @@
-# Day 39 - Graph Basics
+# Day 39 - Graph Traversal & DFS Applications
 
-## Topics Covered
-1. Graph Representation using Adjacency List
-2. DFS (Depth First Search)
-3. BFS (Breadth First Search)
+## Overview
+Day 39 focuses on **Graph Fundamentals**, **BFS**, **DFS**, and common DFS-based applications such as **Connected Components** and **Cycle Detection**.
 
 ## Files
-- `GraphBasics.java` - Basic graph representation using adjacency list.
-- `DFSGraphDemo.java` - DFS traversal implementation.
-- `BFSGraphDemo.java` - BFS traversal implementation.
+- `GraphBasics.java` → Graph data structure and helper methods
+- `BFSGraphDemo.java` → Breadth-First Search (BFS) demo
+- `DFSGraphDemo.java` → Depth-First Search (DFS) demo
+- `ConnectedComponentsDemo.java` → Count connected components in undirected graphs
+- `CycleDetectionDFS.java` → Detect cycles in an undirected graph using DFS
 
-## Notes
-- All graphs are **0-indexed**.
-- DFS uses recursion.
-- BFS uses a queue.
+## Key Concepts
+- BFS and DFS traversal
+- Connected components
+- Cycle detection in undirected graphs
+- Graph representation using adjacency list
+- Time & Space complexity of DFS & BFS

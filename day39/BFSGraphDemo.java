@@ -3,35 +3,20 @@ package day39;
 import java.util.*;
 
 public class BFSGraphDemo {
-    private int vertices;
-    private LinkedList<Integer>[] adjacencyList;
-
-    @SuppressWarnings("unchecked")
-    public BFSGraphDemo(int vertices) {
-        this.vertices = vertices;
-        adjacencyList = new LinkedList[vertices];
-        for (int i = 0; i < vertices; i++) {
-            adjacencyList[i] = new LinkedList<>();
-        }
-    }
-
-    public void addEdge(int src, int dest) {
-        adjacencyList[src].add(dest);
-    }
-
-    public void bfs(int start) {
-        boolean[] visited = new boolean[vertices];
+    public static void bfs(GraphBasics graph, int start) {
+        boolean[] visited = new boolean[graph.getVertices()];
         Queue<Integer> queue = new LinkedList<>();
         visited[start] = true;
-        queue.add(start);
+        queue.offer(start);
 
         while (!queue.isEmpty()) {
             int node = queue.poll();
             System.out.print(node + " ");
-            for (int neighbor : adjacencyList[node]) {
+
+            for (int neighbor : graph.getNeighbors(node)) {
                 if (!visited[neighbor]) {
                     visited[neighbor] = true;
-                    queue.add(neighbor);
+                    queue.offer(neighbor);
                 }
             }
         }
@@ -39,13 +24,18 @@ public class BFSGraphDemo {
     }
 
     public static void main(String[] args) {
-        BFSGraphDemo g = new BFSGraphDemo(5);
-        g.addEdge(0, 1);
-        g.addEdge(0, 2);
-        g.addEdge(1, 3);
-        g.addEdge(2, 4);
+        GraphBasics graph = new GraphBasics(6);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(1, 3);
+        graph.addEdge(2, 4);
+        graph.addEdge(3, 5);
+        graph.addEdge(4, 5);
 
-        System.out.println("BFS starting from node 0:");
-        g.bfs(0);
+        System.out.println("Graph:");
+        graph.printGraph();
+
+        System.out.println("BFS Traversal starting from node 0:");
+        bfs(graph, 0);
     }
 }
